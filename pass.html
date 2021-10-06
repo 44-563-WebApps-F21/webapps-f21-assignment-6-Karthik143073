@@ -1,85 +1,81 @@
 <!DOCTYPE html>
 <html>
- <head>
+
+<head>
     <title>Assaignment 6 - exploring basic java script and interacting with the DOM</title>
 </head>
- 
+
 <body>
 
-<h2>Pass phrase by karthik reddy mamidi</h2>
+    <h2>Pass phrase by karthik reddy mamidi</h2>
 
-<form class="form-group">
-    <label for="form1_secret_word">Enter the secret Phrase </label>
-    <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Secret">
-     <br>
+    <form class="form-group">
+        <label for="form1_secret_word">Enter the secret Phrase </label>
+        <input type="password" id="form1_secret_word" name="form1_secret_word" min=10 max=50 step=2 value="Secret">
+        <br>
 
-    <label for="form1_guess_word">Enter a Phrase</label>
-    <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus> 
-    <br>
+        <label for="form1_guess_word">Enter a Phrase</label>
+        <input type="text" id="form1_guess_word" name="form1_guess_word" autofocus>
+        <br>
 
-    <input type="button" onclick=" processPhrase()" value="Check the Phrase">
-</form>
+        <input type="button" onclick=" processPhrase()" value="Check the Phrase">
+    </form>
 
 
-<p id="result">Your Phrase count will be shown here.</p>
+    <p id="result">Your Phrase count will be shown here.</p>
 
-<div class="container">
-    <img src="Monkey.jpg" id="images" onclick="newImage()" height="200" width="200">
+    <div class="container">
+        <img src="images/Monkey.jpg" id="images" onclick="newImage(this)" height="200" width="200">
     </div>
 
     <script>
-
-        var  usingImage = 1;
-            function newImage(){
-                switch(usingImage){
-                    case 1:
-                    document.getElementById("images").src="Alligator.jpg";
+        let usingImage = 1;
+        function newImage(img) {
+            switch (usingImage) {
+                case 1:
+                    document.getElementById("images").src = "images/Alligator.jpg";
                     usingImage++;
                     break;
-        
-                    case 2:
-                    document.getElementById("images").src="Dog.jpg";
+                case 2:
+                    document.getElementById("images").src = "images/Dog.jpg";
                     usingImage++;
                     break;
-        
-                    case 3:
-                    document.getElementById("images").src="Monkey.jpg";
-                    usingImage++;
+                case 3:
+                    document.getElementById("images").src = "images/Monkey.jpg";
+                    usingImage = 1;
                     break;
-                }
             }
+        }
+            correct = 0;
+            wrong = 0;
+            function processPhrase() {
 
-<script>
-    correct = 0;
-        wrong = 0;
-
-    function processPhrase() {
-        
-        console.log("Checking the Guess......")
+                console.log("Checking the Guess......")
         secret_Word = document.getElementById("form1_secret_word").value
-        guess_word = document.getElementById("form1_guess_word").value
-        confirm_guess = confirm("Is this guess word? " + guess_word)
-        result = document.getElementById("result")
-        if (confirm_guess) {
+            guess_word = document.getElementById("form1_guess_word").value
+            confirm_guess = confirm("Is this guess word? " + guess_word)
+            result = document.getElementById("result")
+            if (confirm_guess) {
             if (secret_Word.localeCompare(guess_word) == 0) {
                 alert("Access Allowed.")
                 correct = correct + 1
-                result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+            result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
             }
-            else
-            {
-                alert("Access Denied")
+                else
+                {
+                    alert("Access Denied")
                 wrong = wrong + 1
                 result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
             }
             
         } else {
-            alert("Please Phrase the word again.!!!")
-        }
+                        alert("Please Phrase the word again.!!!")
+                    }
     }
 
- </script>
+    </script>
 
 
 </body>
-</html> 
+
+</html>
