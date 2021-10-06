@@ -23,6 +23,32 @@
 
 <p id="result">Your Phrase count will be shown here.</p>
 
+<div class="container">
+    <img src="Monkey.jpg" id="images" onclick="newImage()" height="200" width="200">
+    </div>
+
+    <script>
+
+        var  usingImage = 1;
+            function newImage(){
+                switch(usingImage){
+                    case 1:
+                    document.getElementById("images").src="Alligator.jpg";
+                    usingImage++;
+                    break;
+        
+                    case 2:
+                    document.getElementById("images").src="Dog.jpg";
+                    usingImage++;
+                    break;
+        
+                    case 3:
+                    document.getElementById("images").src="Monkey.jpg";
+                    usingImage++;
+                    break;
+                }
+            }
+
 <script>
     correct = 0;
         wrong = 0;
