@@ -48,6 +48,9 @@
         }
             correct = 0;
             wrong = 0;
+            function giveAlert(){
+    alert("Account is locked")
+}
             function processPhrase() {
 
                 console.log("Checking the Guess......")
@@ -61,6 +64,12 @@
                 correct = correct + 1
             result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
             }
+            else if(wrong > 2){
+        document.getElementById("btn1").onclick = giveAlert()
+        giveAlert()
+        wrong++ 
+        result.innerHTML = "Correct guess Count: " + correct + "<br>" +"Wrong guess Count: " + wrong
+    }
                 else
                 {
                     alert("Access Denied")
